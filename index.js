@@ -8,6 +8,7 @@ let robotPlaced = false;
 
 // facing direction
 let facingDirection;
+let inputFacingDirection;
 
 // input location
 let inputX = -1;
@@ -49,7 +50,7 @@ const checkInput = (input) => {
     else {
       inputX = parseInt(checkPlaceResult[0]);
       inputY = parseInt(checkPlaceResult[1]);
-      facingDirection = checkPlaceResult[2];
+      inputFacingDirection = checkPlaceResult[2];
       commandType = PLACE;
       return [true];
     }
@@ -82,13 +83,15 @@ const checkPlace = (input) => {
   if (![NORTH, SOUTH, WEST, EAST].includes(data[2]))
     return false;
 
-  return [data[0], data[1], data[2]];
+  return [parseInt(data[0]), parseInt(data[1]), data[2]];
 }
 
 const checkIsInteger = (input) => {
   if (isNaN(input))
     return false;
   if  (input.includes('.'))
+    return false;
+  if  (input.includes('e') || input.includes('E'))
     return false;
   if (!input.length)
     return false;
@@ -169,11 +172,13 @@ const takeUserInput = function() {
         if (showWarning)
           console.log(WARNING_NOT_PLACED);
       } else {
-        robotPlaced = true;
         switch(commandType) {
           case PLACE:
-            if (checkOnTable(inputX, inputY))
+            if (checkOnTable(inputX, inputY)) {
               UpdateTable(inputX, inputY);
+              facingDirection = inputFacingDirection;
+              robotPlaced = true;
+            }
             else {
               if (showWarning)
                 console.log(WARNING_FALL)
