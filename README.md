@@ -4,7 +4,7 @@ Run `npm run go` to start the program, add **log** as parameter to show warning 
 Run `npm start` during development to see live update of program\
 Run `npm test` to do unit test\
 The program will keep running by taking user input\
-Press `Ctrl C` or `Ctrl Z` to quit\
+Press `esc` button to quit\
 The program takes one command as input each time, but you can copy and paste several commands to run them at once, such as
 ```
 PLACE 1,2,EAST 
