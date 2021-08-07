@@ -144,19 +144,16 @@ const takeUserInput = function(data) {
   const commands = data.toLowerCase().split('\n');
   commands.forEach(cmd => {
     let command = cmd.trim();
-    if (showWarning)
-      console.log(command);
     const [checkResult, payload] = checkInput(command);
     if (!checkResult) {
       // invalid input
-      if (showWarning)
-        console.log(payload);
+      console.log(command + "\n" + payload);
     }
     else {
       if (!robotPlaced && !command.includes(PLACE)) {
         // robot is not placed, ignore the command
         if (showWarning)
-          console.log(WARNING_NOT_PLACED);
+          console.log(command + "\n" + WARNING_NOT_PLACED);
       } else {
         commandType = payload.commandType;
         switch(commandType) {
@@ -171,7 +168,7 @@ const takeUserInput = function(data) {
             }
             else {
               if (showWarning)
-                console.log(WARNING_FALL)
+                console.log(command + "\n" + WARNING_FALL)
             }
             break;
           case MOVE:
@@ -180,7 +177,7 @@ const takeUserInput = function(data) {
               [table, currentX, currentY] = UpdateTable(x, y);
             } else {
               if (showWarning)
-                console.log(WARNING_FALL);
+                console.log(command + "\n" + WARNING_FALL);
             }
             break;
           case LEFT:
