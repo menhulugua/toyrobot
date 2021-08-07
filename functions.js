@@ -144,9 +144,14 @@ const takeUserInput = function(data) {
   const commands = data.toLowerCase().split('\n');
   commands.forEach(cmd => {
     let command = cmd.trim();
+    if (showWarning)
+      console.log(command);
     const [checkResult, payload] = checkInput(command);
-    if (!checkResult) // invalid input, show errors
-      console.log(payload);
+    if (!checkResult) {
+      // invalid input
+      if (showWarning)
+        console.log(payload);
+    }
     else {
       if (!robotPlaced && !command.includes(PLACE)) {
         // robot is not placed, ignore the command
