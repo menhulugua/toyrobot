@@ -14,5 +14,7 @@ LEFT
 MOVE 
 REPORT
 ```
-Input commands are case insensative
+Input commands are case insensative\
 Extra space in command like `PLACE 1,1,NORTH` will be taken as invalid command, threre's only 1 space between **PLACE** and the following, no space before or after comma
+
+## I see in the requirements I should provide test for the application, but I don't know how to write a test which can simulate user input from terminal 1 by 1. So I created another branch called **from-file**, which takes commands from a file.  
