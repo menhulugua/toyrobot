@@ -42,7 +42,6 @@ const checkOnTable = (x, y) => {
 
 // check if input is valid
 const checkInput = (input) => {
-  input = input.toLowerCase();
   if (input.includes(PLACE)) {
     let checkPlaceResult = checkPlace(input);
     if (!checkPlaceResult)
@@ -64,7 +63,7 @@ const checkInput = (input) => {
 }
 
 const checkPlace = (input) => {
-  let inputArray = input.toLowerCase().split(' ');
+  let inputArray = input.split(' ');
   if (inputArray.length != 2)
     return false;
   if (inputArray[0] !== PLACE)
@@ -161,7 +160,7 @@ const rl = readline.createInterface({
 
 const takeUserInput = function() {
   rl.question("Input next command:", function(cmd) {
-    let command = cmd.trim();
+    let command = cmd.trim().toLowerCase();
     const [checkResult, error] = checkInput(command);
     if (!checkResult)
       console.log(error);
