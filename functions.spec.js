@@ -1,5 +1,21 @@
-const { UpdateTable, checkOnTable, moveToGrid, checkInput, checkIsInteger, checkPlace, turn } = require('./functions');
+const { UpdateTable, checkOnTable, moveToGrid, checkInput, checkIsInteger, checkPlace, turn, takeUserInput } = require('./functions');
 const { DIMENSION_X, DIMENSION_Y, EMPTY_GRID, ROBOT_GRID, LEFT, RIGHT, NORTH, SOUTH, WEST, EAST, REPORT, MOVE, PLACE, ERROR_INVALID, ERROR_INVALID_PLACE, WARNING_FALL, WARNING_NOT_PLACED } = require('./constants');
+
+describe("test the application", () => {
+  it ("should show Output: 0,1,NORTH", () => {
+    expect(takeUserInput(`PLACE 0,0,NORTH
+                          MOVE
+                          REPORT`)).toBe(`Output: 0,1,NORTH`);
+  });
+  it ("should show Output: 3,3,NORTH", () => {
+    expect(takeUserInput(`PLACE 1,2,EAST
+                          MOVE
+                          MOVE
+                          LEFT
+                          MOVE
+                          REPORT`)).toBe(`Output: 3,3,NORTH`);
+  });
+});
 
 describe("test update table function", () => {
   it ("update 3,4", () => {
