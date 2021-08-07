@@ -84,7 +84,7 @@ const takeUserInput = function() {
             facingDirection = turn(commandType, facingDirection);
             break;
           case REPORT:
-            console.log(`Output: ${currentX}, ${currentY}, ${facingDirection.toUpperCase()}`);
+            console.log(`Output: ${currentX},${currentY},${facingDirection.toUpperCase()}`);
             break;
           default:
             break;
