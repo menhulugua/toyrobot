@@ -91,7 +91,8 @@ const checkIsInteger = (input) => {
     return false;
   if  (input.includes('.'))
     return false;
-  
+  if (!input.length)
+    return false;
   return true;
 }
 
