@@ -160,7 +160,8 @@ const rl = readline.createInterface({
 });
 
 const takeUserInput = function() {
-  rl.question("Input next command:", function(command) {
+  rl.question("Input next command:", function(cmd) {
+    let command = cmd.trim();
     const [checkResult, error] = checkInput(command);
     if (!checkResult)
       console.log(error);
