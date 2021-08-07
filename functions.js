@@ -122,5 +122,7 @@ module.exports = {
   checkOnTable,
   moveToGrid,
   checkInput,
+  checkPlace,
+  checkIsInteger,
   turn
 }

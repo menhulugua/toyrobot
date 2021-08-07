@@ -6,7 +6,7 @@
   "scripts": {
     "go": "node index.js",
     "start": "npx nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/menhulugua/toyrobot/issues"
   },
-  "homepage": "https://github.com/menhulugua/toyrobot#readme"
+  "homepage": "https://github.com/menhulugua/toyrobot#readme",
+  "dependencies": {
+    "jest": "^27.0.6"
+  }
 }

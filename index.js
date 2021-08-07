@@ -46,7 +46,7 @@ const takeUserInput = function() {
   rl.question("Input next command:", function(cmd) {
     let command = cmd.trim().toLowerCase();
     const [checkResult, payload] = checkInput(command);
-    if (!checkResult)
+    if (!checkResult) // invalid input, show errors
       console.log(payload);
     else {
       if (!robotPlaced && !command.includes(PLACE)) {
